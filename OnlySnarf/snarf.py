@@ -173,15 +173,17 @@ atexit.register(exit_handler)
 def main():
     try:
         # purge local tmp files
-        from .classes.file import File
-        File.remove_local()
+        # the relative import here throws an error because we don't know the shared parent directory
+        # from .classes.file import File
+        # File.remove_local()
+
         # get the thing, do the thing
         action = Settings.get_action()
         Settings.print("Running - {}".format(action))
         action = getattr(Snarf, action)
         action()
     except Exception as e:
-        Settings.dev_print(e)
+        Settings.print(e)
         Settings.print("shnarf??")
     finally:
         Settings.print("shnarrf!")

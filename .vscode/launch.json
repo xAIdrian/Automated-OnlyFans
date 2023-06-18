@@ -1,0 +1,24 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python CLI Debug",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/OnlySnarf/snarf.py",
+      "console": "integratedTerminal",
+      "args": [
+        "post",
+        "-text",
+        "message",
+        "-expiration",
+        "999",
+        "public/images/shnarf.jpg"
+      ],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

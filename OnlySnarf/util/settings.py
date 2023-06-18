@@ -402,16 +402,21 @@ class Settings:
         config_file = configparser.ConfigParser()
         # strip email
         if "@" in username: username = username[0 : username.index("@")]
+        
         Settings.dev_print("retrieving user config: {}".format(username))
-        Settings.dev_print(os.path.join(Settings.get_base_directory(), "conf", "users", username+".conf"))
-        config_file.read(os.path.join(Settings.get_base_directory(), "conf", "users", username+".conf"))
+
+        configDirectory = os.path.join(Settings.get_base_directory(), "OnlySnarf", "conf", "users")
+        filePath = os.path.join(configDirectory, username+".conf")
+        Settings.dev_print(filePath)
+        config_file.read(filePath)
+
         userConfig = {}
         for section in config_file.sections():
-            # Settings.dev_print(section)
+            Settings.dev_print(section)
             for key in config_file[section]:
                 # Settings.dev_print(section, key, config_file[section][key].strip("\""))
                 userConfig[section.lower()+"_"+key.lower()] = config_file[section][key].strip("\"")
-        # Settings.dev_print(userConfig)
+        Settings.dev_print(userConfig)
         return userConfig
 
     def get_username():

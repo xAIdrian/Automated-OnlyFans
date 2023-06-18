@@ -40,3 +40,5 @@ old_README.md
 CHANGELOG.md
 LICENSE.txt
 MANIFEST.in
+OnlySnarf/conf/users/adrianfromkitsu.conf
+*.log
